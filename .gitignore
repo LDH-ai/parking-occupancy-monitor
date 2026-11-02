@@ -1,13 +1,12 @@
-p4_실습/.venv_DIP/
-
-# Python environments and generated artifacts
-**/.venv/
-**/.venv_DIP/
-**/.venv_DIP_laptop/
-**/__pycache__/
-**/*.egg-info/
-**/.pytest_cache/
-**/*.py[cod]
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
 .env
 .env.*
+data/raw/*
+!data/raw/.gitkeep
+results/*
+!results/.gitkeep
 tmp/

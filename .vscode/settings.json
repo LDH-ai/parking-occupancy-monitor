@@ -1,3 +1,8 @@
 {
-  "python.defaultInterpreterPath": "${workspaceFolder}/p3_\uacfc\uc81c\ud504\ub85c\uc81d\ud2b8/.venv/Scripts/python.exe"
+  "python.defaultInterpreterPath": "${workspaceFolder}/.venv/Scripts/python.exe",
+  "python.testing.pytestEnabled": true,
+  "python.testing.unittestEnabled": false,
+  "python.testing.pytestArgs": [
+    "tests"
+  ]
 }

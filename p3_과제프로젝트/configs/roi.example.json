@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "status": "template_no_real_coordinates",
+  "reference_size": [
+    1280,
+    720
+  ],
+  "slots": [],
+  "slot_fields": {
+    "slot_id": "고유 ID",
+    "zone": "구역",
+    "vertices": "실제 영상에서 지정한 네 꼭짓점 [[x,y],...]"
+  }
+}

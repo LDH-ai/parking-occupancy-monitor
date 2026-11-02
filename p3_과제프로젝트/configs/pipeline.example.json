@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "status": "example_not_calibrated",
+  "reference_size": [
+    1280,
+    720
+  ],
+  "preprocess": {
+    "gaussian_kernel": [
+      5,
+      5
+    ]
+  },
+  "pixel_ratio": {
+    "adaptive_block_size": 25,
+    "adaptive_c": 16,
+    "median_kernel": 5,
+    "morphology": "dilate",
+    "kernel_size": [
+      3,
+      3
+    ]
+  },
+  "laplacian": {
+    "depth": "float64",
+    "statistic": "mean_absolute_inside_roi"
+  },
+  "temporal": {
+    "candidate_seconds": [
+      0.5,
+      1.0
+    ],
+    "initial_state": "unknown"
+  },
+  "thresholds_by_slot": {},
+  "note": "전처리 값은 시작 예시이며 검증에서 선택한다. 칸별 임계값은 보정 데이터로 채운다."
+}

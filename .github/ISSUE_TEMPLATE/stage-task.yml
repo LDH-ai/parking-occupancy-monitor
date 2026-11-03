@@ -1,0 +1,23 @@
+name: 단계별 작업
+description: 담당자와 완료 증거를 정하는 팀 작업
+title: "[단계] 작업 제목"
+body:
+  - type: textarea
+    id: scope
+    attributes:
+      label: 단계와 담당자
+      description: 주차 단계, 담당자, 선행 작업 이슈를 적어주세요.
+    validations:
+      required: true
+  - type: textarea
+    id: deliverables
+    attributes:
+      label: 산출물과 완료 조건
+      description: 수정 위치와 확인 가능한 완료 증거를 적어주세요.
+    validations:
+      required: true
+  - type: textarea
+    id: validation
+    attributes:
+      label: 검증 및 인계
+      description: 실행 명령, 데이터·설정, 결과, 남은 조건을 기록하세요.

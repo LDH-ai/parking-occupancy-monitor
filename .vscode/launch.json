@@ -2,6 +2,20 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "name": "ROI 미리보기 - 확정 20칸",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "parking_monitor",
+      "python": "${workspaceFolder}/.venv/Scripts/python.exe",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "args": [
+        "roi-preview", "data/raw/faisal_ajao/video.mp4",
+        "--roi", "configs/roi.shared_carpark.final.json",
+        "--frame", "377", "--output", "tmp/stage10_review/final20.png"
+      ]
+    },
+    {
       "name": "ROI 편집 - 팀원 인계 69칸",
       "type": "debugpy",
       "request": "launch",

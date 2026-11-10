@@ -1,0 +1,463 @@
+{
+  "schema_version": 1,
+  "status": "stage10_reviewed_development_v1",
+  "reference_size": [
+    1100,
+    720
+  ],
+  "source": {
+    "video_id": "shared_carpark",
+    "video_sha256": "f2d804e9b2e8ff7e0ae9776068a9cbc8126b6bce2e09ef6f56d3ad9c8fe84069"
+  },
+  "annotation": {
+    "method": "agent_visual_review_of_team_handoff",
+    "review_status": "agent_reviewed_not_independent_human_review",
+    "parent_config": "configs/roi.shared_carpark.team.json",
+    "reviewed_on": "2026-11-10",
+    "selection_rule": "Two adjacent full-height columns, rows 3-12. Exclude top two rows with long vans and island edges. Keep all 20 geometrically eligible bays in these contiguous rows; no detector outcomes used.",
+    "boundary_rule": "Ground-plane bay boundaries just inside painted separators; include more of each bay than original feature-core polygons. Vehicle-body overlap counts occupied; shadows alone do not.",
+    "notes": "A03-A12 and A15-A24. All original IDs preserved. Original 69-slot config and team labels remain unchanged."
+  },
+  "slots": [
+    {
+      "slot_id": "A03",
+      "zone": "A",
+      "vertices": [
+        [
+          48,
+          194
+        ],
+        [
+          154,
+          194
+        ],
+        [
+          154,
+          238
+        ],
+        [
+          48,
+          238
+        ]
+      ]
+    },
+    {
+      "slot_id": "A04",
+      "zone": "A",
+      "vertices": [
+        [
+          48,
+          242
+        ],
+        [
+          154,
+          242
+        ],
+        [
+          154,
+          285
+        ],
+        [
+          48,
+          285
+        ]
+      ]
+    },
+    {
+      "slot_id": "A05",
+      "zone": "A",
+      "vertices": [
+        [
+          48,
+          289
+        ],
+        [
+          154,
+          289
+        ],
+        [
+          154,
+          333
+        ],
+        [
+          48,
+          333
+        ]
+      ]
+    },
+    {
+      "slot_id": "A06",
+      "zone": "A",
+      "vertices": [
+        [
+          48,
+          337
+        ],
+        [
+          154,
+          337
+        ],
+        [
+          154,
+          381
+        ],
+        [
+          48,
+          381
+        ]
+      ]
+    },
+    {
+      "slot_id": "A07",
+      "zone": "A",
+      "vertices": [
+        [
+          48,
+          385
+        ],
+        [
+          154,
+          385
+        ],
+        [
+          154,
+          428
+        ],
+        [
+          48,
+          428
+        ]
+      ]
+    },
+    {
+      "slot_id": "A08",
+      "zone": "A",
+      "vertices": [
+        [
+          48,
+          433
+        ],
+        [
+          154,
+          433
+        ],
+        [
+          154,
+          476
+        ],
+        [
+          48,
+          476
+        ]
+      ]
+    },
+    {
+      "slot_id": "A09",
+      "zone": "A",
+      "vertices": [
+        [
+          48,
+          480
+        ],
+        [
+          154,
+          480
+        ],
+        [
+          154,
+          524
+        ],
+        [
+          48,
+          524
+        ]
+      ]
+    },
+    {
+      "slot_id": "A10",
+      "zone": "A",
+      "vertices": [
+        [
+          48,
+          528
+        ],
+        [
+          154,
+          528
+        ],
+        [
+          154,
+          572
+        ],
+        [
+          48,
+          572
+        ]
+      ]
+    },
+    {
+      "slot_id": "A11",
+      "zone": "A",
+      "vertices": [
+        [
+          48,
+          576
+        ],
+        [
+          154,
+          576
+        ],
+        [
+          154,
+          620
+        ],
+        [
+          48,
+          620
+        ]
+      ]
+    },
+    {
+      "slot_id": "A12",
+      "zone": "A",
+      "vertices": [
+        [
+          48,
+          624
+        ],
+        [
+          154,
+          624
+        ],
+        [
+          154,
+          666
+        ],
+        [
+          48,
+          666
+        ]
+      ]
+    },
+    {
+      "slot_id": "A15",
+      "zone": "A",
+      "vertices": [
+        [
+          161,
+          194
+        ],
+        [
+          268,
+          194
+        ],
+        [
+          268,
+          238
+        ],
+        [
+          161,
+          238
+        ]
+      ]
+    },
+    {
+      "slot_id": "A16",
+      "zone": "A",
+      "vertices": [
+        [
+          161,
+          242
+        ],
+        [
+          268,
+          242
+        ],
+        [
+          268,
+          285
+        ],
+        [
+          161,
+          285
+        ]
+      ]
+    },
+    {
+      "slot_id": "A17",
+      "zone": "A",
+      "vertices": [
+        [
+          161,
+          289
+        ],
+        [
+          268,
+          289
+        ],
+        [
+          268,
+          333
+        ],
+        [
+          161,
+          333
+        ]
+      ]
+    },
+    {
+      "slot_id": "A18",
+      "zone": "A",
+      "vertices": [
+        [
+          161,
+          337
+        ],
+        [
+          268,
+          337
+        ],
+        [
+          268,
+          381
+        ],
+        [
+          161,
+          381
+        ]
+      ]
+    },
+    {
+      "slot_id": "A19",
+      "zone": "A",
+      "vertices": [
+        [
+          161,
+          385
+        ],
+        [
+          268,
+          385
+        ],
+        [
+          268,
+          428
+        ],
+        [
+          161,
+          428
+        ]
+      ]
+    },
+    {
+      "slot_id": "A20",
+      "zone": "A",
+      "vertices": [
+        [
+          161,
+          433
+        ],
+        [
+          268,
+          433
+        ],
+        [
+          268,
+          476
+        ],
+        [
+          161,
+          476
+        ]
+      ]
+    },
+    {
+      "slot_id": "A21",
+      "zone": "A",
+      "vertices": [
+        [
+          161,
+          480
+        ],
+        [
+          268,
+          480
+        ],
+        [
+          268,
+          524
+        ],
+        [
+          161,
+          524
+        ]
+      ]
+    },
+    {
+      "slot_id": "A22",
+      "zone": "A",
+      "vertices": [
+        [
+          161,
+          528
+        ],
+        [
+          268,
+          528
+        ],
+        [
+          268,
+          572
+        ],
+        [
+          161,
+          572
+        ]
+      ]
+    },
+    {
+      "slot_id": "A23",
+      "zone": "A",
+      "vertices": [
+        [
+          161,
+          576
+        ],
+        [
+          268,
+          576
+        ],
+        [
+          268,
+          620
+        ],
+        [
+          161,
+          620
+        ]
+      ]
+    },
+    {
+      "slot_id": "A24",
+      "zone": "A",
+      "vertices": [
+        [
+          161,
+          624
+        ],
+        [
+          268,
+          624
+        ],
+        [
+          268,
+          666
+        ],
+        [
+          161,
+          666
+        ]
+      ]
+    }
+  ]
+}

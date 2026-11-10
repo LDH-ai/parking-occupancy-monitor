@@ -1,20 +1,50 @@
 {
-  "status": "provisional_development_only",
+  "status": "reviewed_stage10_development_v2",
   "mechanical_validation": "passed",
   "split_blocks": 7,
   "sample_counts": {
-    "calibration": 96,
-    "validation": 54,
-    "test": 97
+    "calibration": 141,
+    "validation": 58,
+    "test": 54
   },
   "test_frame_goal": 200,
-  "test_frame_shortfall": 103,
-  "all_sources_cleared": false,
+  "test_frame_shortfall": 146,
+  "all_sources_cleared": true,
+  "source_adoption_basis": "Course-project data adoption confirmed on user-reported MIT basis; repository declarations and media-specific independent verification remain distinct.",
   "event_boundary_review": {
-    "status": "pending_roi_and_continuous_event_review",
-    "agent_review": "Sparse boundary thumbnails at +/-3s reviewed for gross scene continuity. No ROI exists; did not certify that no entry/exit event crosses split boundaries.",
-    "evidence": "tmp/split_review/olgarose_lot_1.jpg; tmp/split_review/olgarose_lot_2.jpg",
-    "required_before_freeze": "Choose ROIs, review continuous boundary intervals, and move or enlarge gaps so a single entry/exit event is not present in multiple splits. Do not adjust based on test detector performance."
+    "status": "agent_sequence_review_development_selection",
+    "method": "Full-scene 5-second overview across all clips, 1-second neighboring sequence sheets across previous event-crossing gaps; shared_carpark 0.25-second event crops. All source frames are decoded for integrity separately. Visual sampling is not an independent human continuous-video review.",
+    "observations": [
+      {
+        "video_id": "olgarose_lot_1",
+        "event": "right box-truck departure around 40-55s",
+        "assigned_split": "calibration",
+        "block": [
+          0,
+          60
+        ]
+      },
+      {
+        "video_id": "olgarose_lot_1",
+        "event": "foreground dark-sedan departure around 75-100s",
+        "assigned_split": "validation",
+        "block": [
+          70,
+          110
+        ]
+      },
+      {
+        "video_id": "olgarose_lot_2",
+        "event": "white work-truck arrival and parking maneuver around 10-45s",
+        "assigned_split": "calibration",
+        "block": [
+          0,
+          55
+        ]
+      }
+    ],
+    "evidence": "tmp/stage10_review/*overview* and *boundary*; reproducible sampling recipe in docs/stage10-review.md",
+    "independent_human_review": "pending; do not certify final evaluation event boundaries until other-view ROIs and human event annotation exist."
   },
   "note": "Candidate frame indices only; no ground-truth labels or occupancy balance established."
 }

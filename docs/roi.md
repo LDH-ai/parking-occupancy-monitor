@@ -2,6 +2,17 @@
 
 프로젝트 루트 `주차면점유검출/`에서 실행한다. ROI는 주차면 경계이며 빈자리·점유 정답이나 검출 결과가 아니다.
 
+## 현재 사용할 20칸 확정본
+
+`configs/roi.shared_carpark.final.json`의 A03~A12·A15~A24를 10주차 개발용으로 확정했다. 팀원 원본 69칸 중 인접 두 주차열의 연속 10행이며, 긴 밴·섬 경계가 있는 위쪽 두 행은 제외했다. 원본의 안쪽 코어 영역을 주차선 바로 안쪽 경계로 넓히고 입출차 시퀀스로 검수했다. 원본 69칸 설정은 보존한다. 검수본 정답은 `data/labels/pilot.shared_carpark.reviewed.csv`다.
+
+```powershell
+.\.venv\Scripts\python.exe -m parking_monitor roi-preview data/raw/faisal_ajao/video.mp4 --roi configs/roi.shared_carpark.final.json --frame 377 --output tmp/stage10_review/final20.png
+.\.venv\Scripts\python.exe scripts/validate_stage10.py
+```
+
+파일 목록·해시는 `data/manifests/stage10.freeze.json`, 검수와 한계는 [10주차 검수 기록](stage10-review.md)에 있다. 수정이 필요하면 확정본을 조용히 덮지 말고 사유와 새 버전을 남긴다. 아래 69칸 인계본과 10칸 에이전트 초안은 이전 상태의 별도 자료다.
+
 ## 준비한 실제 영상 초안
 
 2026-11-10 팀원 인계 ROI `configs/roi.shared_carpark.team.json`을 추가했다. A01~A69의 69칸이며 ID·구역 A·꼭짓점을 원본 그대로 유지하고 현재 JSON 형식과 원본 영상 해시를 연결했다. 기존 아래의 R01~R10 초안은 보존용 별도 설정이다. 같은 영상의 두 설정을 합치거나 ID를 서로 대응한다고 가정하지 않는다.

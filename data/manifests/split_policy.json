@@ -1,7 +1,7 @@
 {
-  "version": 1,
+  "version": 2,
   "created_on": "2026-11-02",
-  "status": "provisional_development_only",
+  "status": "reviewed_stage10_development_v2",
   "frozen_for_final_evaluation": false,
   "time_bounds": "Half-open [start_s, end_s); frame timestamps are zero-based frame_id / reported FPS. Container timestamps and event annotations require review before finalization.",
   "minimum_gap_s": 10,
@@ -9,45 +9,87 @@
   "sample_method": "ceil FPS frame stride so actual nominal timestamps are at least 1 second apart",
   "session_id_semantics": "clip_ IDs are file-level grouping IDs, not verified independent filming sessions; captured_at remains unknown",
   "duplicate_policy": "Identical faisal-ajao/mohd-faizy video is a single source and calibration only",
-  "short_video_policy": "shared_carpark is only 28.29 seconds; cannot provide useful three-way splits with two 10-second gaps",
+  "short_video_policy": "shared_carpark is calibration only, full decoded duration 679/24 seconds.",
   "event_boundary_review": {
-    "status": "pending_roi_and_continuous_event_review",
-    "agent_review": "Sparse boundary thumbnails at +/-3s reviewed for gross scene continuity. No ROI exists; did not certify that no entry/exit event crosses split boundaries.",
-    "evidence": "tmp/split_review/olgarose_lot_1.jpg; tmp/split_review/olgarose_lot_2.jpg",
-    "required_before_freeze": "Choose ROIs, review continuous boundary intervals, and move or enlarge gaps so a single entry/exit event is not present in multiple splits. Do not adjust based on test detector performance."
+    "status": "agent_sequence_review_development_selection",
+    "method": "Full-scene 5-second overview across all clips, 1-second neighboring sequence sheets across previous event-crossing gaps; shared_carpark 0.25-second event crops. All source frames are decoded for integrity separately. Visual sampling is not an independent human continuous-video review.",
+    "observations": [
+      {
+        "video_id": "olgarose_lot_1",
+        "event": "right box-truck departure around 40-55s",
+        "assigned_split": "calibration",
+        "block": [
+          0,
+          60
+        ]
+      },
+      {
+        "video_id": "olgarose_lot_1",
+        "event": "foreground dark-sedan departure around 75-100s",
+        "assigned_split": "validation",
+        "block": [
+          70,
+          110
+        ]
+      },
+      {
+        "video_id": "olgarose_lot_2",
+        "event": "white work-truck arrival and parking maneuver around 10-45s",
+        "assigned_split": "calibration",
+        "block": [
+          0,
+          55
+        ]
+      }
+    ],
+    "evidence": "tmp/stage10_review/*overview* and *boundary*; reproducible sampling recipe in docs/stage10-review.md",
+    "independent_human_review": "pending; do not certify final evaluation event boundaries until other-view ROIs and human event annotation exist."
   },
   "discarded_intervals": [
     {
       "video_id": "olgarose_lot_1",
-      "start_s": 40,
-      "end_s": 50,
-      "reason": "boundary gap"
+      "start_s": 60,
+      "end_s": 70,
+      "reason": "10-second inter-split gap"
     },
     {
       "video_id": "olgarose_lot_1",
-      "start_s": 80,
-      "end_s": 90,
-      "reason": "boundary gap"
+      "start_s": 110,
+      "end_s": 120,
+      "reason": "10-second inter-split gap"
     },
     {
       "video_id": "olgarose_lot_2",
-      "start_s": 30,
-      "end_s": 40,
-      "reason": "boundary gap"
+      "start_s": 55,
+      "end_s": 65,
+      "reason": "10-second inter-split gap"
     },
     {
       "video_id": "olgarose_lot_2",
-      "start_s": 65,
-      "end_s": 75,
-      "reason": "boundary gap"
+      "start_s": 85,
+      "end_s": 95,
+      "reason": "10-second inter-split gap"
     }
   ],
   "tail_policy": {
-    "shared_carpark": "Exclude t>=28s",
-    "olgarose_lot_1": "Exclude t>=145s, including reported/decoded frame-count discrepancy at tail",
-    "olgarose_lot_2": "Exclude t>=120s"
+    "shared_carpark": "Use all 679 decoded frames; end is exclusive 679/24 seconds.",
+    "olgarose_lot_1": "Exclude t>=145 seconds, including reported/decoded tail discrepancy.",
+    "olgarose_lot_2": "Exclude t>=125 seconds."
   },
-  "clearance": "All three video permissions unresolved. Split planning does not grant usage permission.",
+  "clearance": "User reports MIT open-source videos and authorizes project adoption; repository-level declarations are recorded separately in rights_review.json.",
   "test_use": "Keep test labels and detector outcomes out of threshold/filter/temporal parameter selection. Sparse test-scene review for split design was performed; do not claim the footage was never viewed.",
-  "splits_sha256": "f18630208222fb98f6086b0f616c1916e01fdf7c41a5fc70c3fe4f49e2ccfa0b"
+  "splits_sha256": "400ff891926b1b4674dc344690a53e1c89bd80d889daef05e8dee0bc0d5b8f23",
+  "updated_on": "2026-11-10",
+  "split_list_frozen_for_stage10": true,
+  "previous_version_commit": "52595c57b4d99d28cccb193dd241b785dc25143e",
+  "changes": [
+    "Use all 679 shared_carpark frames for calibration; include the final 3 pilot rows.",
+    "Move lot_1 blocks to keep the box-truck departure in calibration and the foreground-sedan departure in validation.",
+    "Move lot_2 blocks to keep the white work-truck arrival/maneuver in calibration."
+  ],
+  "final_evaluation_requirements": [
+    "Other-view ROIs and independent human boundary/event review",
+    "At least 200 test frames and 10 annotated entry/exit events; expand with new version before final evaluation",
+    "No detector outcomes used to choose or revise these blocks"
+  ]
 }

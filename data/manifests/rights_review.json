@@ -1,7 +1,7 @@
 {
-  "reviewed_on": "2026-11-02",
+  "reviewed_on": "2026-11-10",
   "scope": "Downloaded upstream samples; repository declarations and footage provenance checked separately",
-  "conclusion": "Repository license review complete; footage usage permission unresolved for all three unique videos",
+  "conclusion": "Course-project data adoption confirmed on user-reported MIT basis; repository declarations and media-specific independent verification remain distinct.",
   "videos": [
     {
       "video_id": "shared_carpark",
@@ -9,12 +9,13 @@
       "repository": "faisal-ajao/parking-space-counter-opencv",
       "repository_license": "MIT",
       "footage_origin": "unverified",
-      "footage_license": "unverified",
-      "status": "permission_unresolved",
-      "approved_for_final_dataset": false,
+      "footage_license": "MIT (user-reported; media-specific declaration not independently verified)",
+      "status": "selected_for_course_project_on_user_reported_MIT",
+      "approved_for_final_dataset": true,
       "public_demo_cleared": false,
       "redistribution_cleared": false,
-      "note": "These flags record project clearance status, not a legal finding that all uses are prohibited. No educational-use exemption was assumed."
+      "note": "Accepted for local course-project development/evaluation on the user-provided MIT basis. Raw footage remains excluded from Git. Public footage publication is outside this change; those flags do not block stage10 development acceptance.",
+      "approval_basis": "User MIT statement on 2026-11-10; repository_license field retains independently observed repository declaration."
     },
     {
       "video_id": "olgarose_lot_1",
@@ -22,12 +23,13 @@
       "repository": "olgarose/ParkingLot",
       "repository_license": null,
       "footage_origin": "unverified",
-      "footage_license": "unverified",
-      "status": "permission_unresolved",
-      "approved_for_final_dataset": false,
+      "footage_license": "MIT (user-reported; media-specific declaration not independently verified)",
+      "status": "selected_for_course_project_on_user_reported_MIT",
+      "approved_for_final_dataset": true,
       "public_demo_cleared": false,
       "redistribution_cleared": false,
-      "note": "These flags record project clearance status, not a legal finding that all uses are prohibited. No educational-use exemption was assumed."
+      "note": "Accepted for local course-project development/evaluation on the user-provided MIT basis. Raw footage remains excluded from Git. Public footage publication is outside this change; those flags do not block stage10 development acceptance.",
+      "approval_basis": "User MIT statement on 2026-11-10; repository_license field retains independently observed repository declaration."
     },
     {
       "video_id": "olgarose_lot_2",
@@ -35,12 +37,13 @@
       "repository": "olgarose/ParkingLot",
       "repository_license": null,
       "footage_origin": "unverified",
-      "footage_license": "unverified",
-      "status": "permission_unresolved",
-      "approved_for_final_dataset": false,
+      "footage_license": "MIT (user-reported; media-specific declaration not independently verified)",
+      "status": "selected_for_course_project_on_user_reported_MIT",
+      "approved_for_final_dataset": true,
       "public_demo_cleared": false,
       "redistribution_cleared": false,
-      "note": "These flags record project clearance status, not a legal finding that all uses are prohibited. No educational-use exemption was assumed."
+      "note": "Accepted for local course-project development/evaluation on the user-provided MIT basis. Raw footage remains excluded from Git. Public footage publication is outside this change; those flags do not block stage10 development acceptance.",
+      "approval_basis": "User MIT statement on 2026-11-10; repository_license field retains independently observed repository declaration."
     }
   ],
   "sources": [
@@ -77,8 +80,12 @@
     }
   ],
   "next_actions": [
-    "Obtain an explicit license covering the footage or written permission from the actual rights holder, including academic evaluation, presentation screenshots, demo video and any redistribution.",
-    "If permission cannot be established, replace final evaluation footage with explicitly licensed data or authorized original recordings."
+    "Preserve source URLs and available license notices. Record the exact source-specific media license if supplied later. No external contact performed."
   ],
-  "contact_performed": false
+  "contact_performed": false,
+  "user_confirmation": {
+    "date": "2026-11-10",
+    "statement": "MIT 오픈소스 동영상",
+    "context": "Response to source/usage-basis question about current three clips; recorded as user-supplied basis, not a newly discovered per-video license."
+  }
 }

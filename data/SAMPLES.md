@@ -21,7 +21,7 @@
 
 ## 출처와 사용 조건
 
-추가 조사 결과와 채택 상태는 [USAGE_REVIEW.md](USAGE_REVIEW.md)를 따른다. 저장소의 MIT 표기는 영상 권한 확정을 뜻하지 않으며, 세 고유 영상 모두 이용 조건은 아직 미확정이다.
+추가 조사와 현재 채택 상태는 [USAGE_REVIEW.md](USAGE_REVIEW.md)를 따른다. 2026-11-10 사용자의 MIT 공개 영상 확인을 근거로 개발·평가용 채택을 확정했다. 아래 저장소별 선언은 별도 조사 사실로 보존한다.
 
 - [faisal-ajao/parking-space-counter-opencv](https://github.com/faisal-ajao/parking-space-counter-opencv): 저장소 MIT 라이선스. 원문 LICENSE를 함께 보관했다.
 - [olgarose/ParkingLot](https://github.com/olgarose/ParkingLot): 확인한 커밋에 라이선스 파일과 명시적 저장소 라이선스가 없다. 로컬 검토용으로 보관하고 재배포 허가는 미확인으로 기록했다.
@@ -42,4 +42,4 @@
 다운로드 스크립트는 기존 파일의 해시가 같으면 건너뛰고, 다르면 덮어쓰지 않고 중단한다.
 영상 목록은 `manifests/videos.csv`, 무결성·디코딩 결과는 `manifests/sample_validation.json`에 기록된다.
 샘플 화면 대조 이미지는 `tmp/sample_review/video_contact_sheet.jpg`에 생성된다.
-보정·검증·테스트의 개발용 잠정 분할과 프레임 표집 목록을 작성했다. [SPLITS.md](SPLITS.md)를 따른다. 2026-11-10 공통 영상의 팀원 ROI 69칸과 파일럿 정답 30행을 추가했다. 기존 10칸 초안은 별도 보존하며 [ROI 안내](../docs/roi.md)와 [인계 안내](handoffs/shared_carpark_2026-11-10/README.md)에 기록했다. 경계·정답 재검수·정답 확대·나머지 영상 ROI·분할 최종 확정이 남아 있어 10주차 전체는 아직 미완료다.
+보정·검증·테스트 개발용 분할 버전 2와 표집 목록을 확정했다. [SPLITS.md](SPLITS.md)를 따른다. 2026-11-10 팀원 ROI 69칸을 보존하고, 그중 경계를 검수·보정한 20칸과 파일럿 검수본 30행을 확정해 10주차 최소 산출물을 완료했다. [검수 기록](../docs/stage10-review.md)·[ROI 안내](../docs/roi.md)·[인계 안내](handoffs/shared_carpark_2026-11-10/README.md)를 따른다. 독립 사람 재검수·다른 시점 ROI·정답 및 사건 규모 확대·최종 성능평가 동결은 후속 작업이다.

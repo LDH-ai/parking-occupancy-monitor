@@ -13,6 +13,7 @@
 - 2026-11-02 개발 준비: `src/parking_monitor/`, `pyproject.toml`, 고정 `requirements.txt`, 전용 `.venv/`, 설정 예시·데이터 양식·테스트를 구성했다. 환경 점검·영상 정보・ROI 편집・미리보기 CLI가 실행되며 검출기·보정·평가기는 아직 구현하지 않았다. 참고 저장소에서 고유 영상 3개를 확보했으며 출처·사용 조건·디코딩 주의사항은 `data/SAMPLES.md`와 `data/manifests/`를 따른다. 공통 영상 10칸의 실제 ROI 초안을 저장·재사용 검증했지만 사용자 검토와 나머지 영상 ROI·사람 정답·실험 성능은 아직 없다.
 - 아래 수치는 제안서의 목표·실험 계획이다. 개발 시 코드·설정·데이터 목록·결과 위치를 정해 README에 남긴다. 아직 없는 폴더를 현재 구조로 설명하지 않는다.
 - 2026-11-10 팀원 인계: 공통 영상 A01~A69 ROI를 `configs/roi.shared_carpark.team.json`, 3칸×10시점 파일럿 정답 30행을 `data/labels/pilot.shared_carpark.csv`에 추가했다. 원본은 `data/handoffs/shared_carpark_2026-11-10/`, 형식 대응·해시·실제 검증은 `data/manifests/team_handoff_validation.json`에 있다. 기존 10칸 R 계열 초안과 합치지 않는다. 형상·원본 연결·재사용은 검증했으며 경계·정답 재검수와 확대, 다른 영상 ROI·평가 대상·분할 확정은 남아 있다. 영상은 기존 shared_carpark와 동일하다.
+- 2026-11-10 후속 검수: **10주차 최소 산출물 완료**로 판정하고 공통 영상 A03~A12·A15~A24의 20칸을 `configs/roi.shared_carpark.final.json`으로 확정했다. 인계 원본은 보존하며 보정한 경계의 파일럿 검수본은 `data/labels/pilot.shared_carpark.reviewed.csv`다(불명 2건→점유). 검수는 에이전트 시각 검토이며 독립 사람 검수가 아니다. 개발용 분할은 버전 2, 규칙은 `data/LABEL_RULES.md`, 확정 파일은 `data/manifests/stage10.freeze.json`과 `docs/stage10-review.md`를 따른다. 사용자 MIT 확인을 기록해 개발·평가용 채택을 확정했으며 영상은 Git 제외다. 다른 시점 ROI·라벨 확대·독립 재검수·최종 평가 규모는 후속 조건이며 최종 성능평가 동결·성능 측정을 완료 처리하지 않는다.
 
 ## 에이전트의 작업 방식
 - 작업 시작 시 요청을 로드맵 단계에 대응시키고 기존 코드·데이터·설정·검증 결과로 완료 여부를 확인한다. `완료`, `진행 중`, `미착수`, `확인 불가`를 구분한다. 날짜나 팀 역할만으로 진척을 추정하지 않는다.

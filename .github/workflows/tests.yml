@@ -18,3 +18,4 @@ jobs:
       - run: python -m pip check
       - run: python -m parking_monitor doctor
       - run: python -m pytest
+      - run: python scripts/validate_stage10.py

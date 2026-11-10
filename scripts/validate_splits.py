@@ -47,6 +47,7 @@ def main():
               "split_blocks": len(rows), "sample_counts": counts,
               "test_frame_goal": 200, "test_frame_shortfall": max(0, 200 - counts.get("test", 0)),
               "all_sources_cleared": all(clearance.get(row["video_id"], False) for row in rows),
+              "source_adoption_basis": rights.get("conclusion"),
               "event_boundary_review": policy["event_boundary_review"],
               "note": "Candidate frame indices only; no ground-truth labels or occupancy balance established."}
     (folder / "split_validation.json").write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")

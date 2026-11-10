@@ -1,0 +1,84 @@
+{
+  "reviewed_on": "2026-11-02",
+  "scope": "Downloaded upstream samples; repository declarations and footage provenance checked separately",
+  "conclusion": "Repository license review complete; footage usage permission unresolved for all three unique videos",
+  "videos": [
+    {
+      "video_id": "shared_carpark",
+      "local_path": "data/raw/faisal_ajao/video.mp4",
+      "repository": "faisal-ajao/parking-space-counter-opencv",
+      "repository_license": "MIT",
+      "footage_origin": "unverified",
+      "footage_license": "unverified",
+      "status": "permission_unresolved",
+      "approved_for_final_dataset": false,
+      "public_demo_cleared": false,
+      "redistribution_cleared": false,
+      "note": "These flags record project clearance status, not a legal finding that all uses are prohibited. No educational-use exemption was assumed."
+    },
+    {
+      "video_id": "olgarose_lot_1",
+      "local_path": "data/raw/olgarose/parking_lot/videos/parking_lot_1.mp4",
+      "repository": "olgarose/ParkingLot",
+      "repository_license": null,
+      "footage_origin": "unverified",
+      "footage_license": "unverified",
+      "status": "permission_unresolved",
+      "approved_for_final_dataset": false,
+      "public_demo_cleared": false,
+      "redistribution_cleared": false,
+      "note": "These flags record project clearance status, not a legal finding that all uses are prohibited. No educational-use exemption was assumed."
+    },
+    {
+      "video_id": "olgarose_lot_2",
+      "local_path": "data/raw/olgarose/parking_lot/videos/parking_lot_2.mp4",
+      "repository": "olgarose/ParkingLot",
+      "repository_license": null,
+      "footage_origin": "unverified",
+      "footage_license": "unverified",
+      "status": "permission_unresolved",
+      "approved_for_final_dataset": false,
+      "public_demo_cleared": false,
+      "redistribution_cleared": false,
+      "note": "These flags record project clearance status, not a legal finding that all uses are prohibited. No educational-use exemption was assumed."
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://github.com/faisal-ajao/parking-space-counter-opencv/blob/1711e343cef555d90056601999978bfaa7b5a420/LICENSE",
+      "finding": "MIT; copyright 2025 Faisal Ajao; preserve copyright and permission notices when using covered software"
+    },
+    {
+      "url": "https://github.com/mohd-faizy/parking-occupancy-detection/blob/ad79b62dec513471af1f34179ee1ec84d13d1c90/LICENSE",
+      "finding": "MIT; copyright 2026 Mohd Faizy; no separate footage origin or media license identified"
+    },
+    {
+      "url": "https://github.com/olgarose/ParkingLot/tree/5367aba807ccf99a5697dbbf6790ddc011dda67d",
+      "finding": "Complete tree has no LICENSE/COPYING/NOTICE file; README has no express licensing terms"
+    },
+    {
+      "url": "https://github.com/faisal-ajao/parking-space-counter-opencv/commit/7d473c6da89be26bab469daef0417333f7881830",
+      "finding": "Video added in 2025; commit message identifies added files but not filming origin or rights"
+    },
+    {
+      "url": "https://github.com/olgarose/ParkingLot/commit/29399684a7c91787f679765db0d9a9eb7e09f0fc",
+      "finding": "Two videos included in initial 2018 implementation; file-addition history is not evidence of filming ownership"
+    },
+    {
+      "url": "https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository",
+      "finding": "Public visibility and ability to view/fork do not constitute a general reuse license"
+    }
+  ],
+  "provenance_leads": [
+    {
+      "candidate": "Murtaza / Computer Vision Zone parking-space tutorial",
+      "status": "unconfirmed lead only",
+      "note": "Other repositories mention this tutorial; did not establish original filming source, exact asset chain or applicable footage terms. Do not attribute footage ownership on this basis."
+    }
+  ],
+  "next_actions": [
+    "Obtain an explicit license covering the footage or written permission from the actual rights holder, including academic evaluation, presentation screenshots, demo video and any redistribution.",
+    "If permission cannot be established, replace final evaluation footage with explicitly licensed data or authorized original recordings."
+  ],
+  "contact_performed": false
+}

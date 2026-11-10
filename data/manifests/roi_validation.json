@@ -1,0 +1,33 @@
+{
+  "video_id": "shared_carpark",
+  "config": "configs/roi.shared_carpark.json",
+  "slot_count": 10,
+  "schema_validation": "passed",
+  "save_load_round_trip": "passed",
+  "source_hash_binding": "passed",
+  "frames_checked": [
+    0,
+    336,
+    678
+  ],
+  "sizes_checked": [
+    [
+      1100,
+      720
+    ],
+    [
+      550,
+      360
+    ]
+  ],
+  "nonempty_masks": "passed",
+  "annotation_review": "agent visually placed; user review pending",
+  "occupancy_labels_created": false,
+  "video_usage_permission_resolved": false,
+  "previews": [
+    "tmp\\roi_review\\shared_frame_0_roi.png",
+    "tmp\\roi_review\\shared_frame_336_roi.png",
+    "tmp\\roi_review\\shared_frame_678_roi.png",
+    "tmp\\roi_review\\shared_frame_0_roi_half.png"
+  ]
+}

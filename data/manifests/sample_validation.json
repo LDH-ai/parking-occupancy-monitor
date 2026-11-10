@@ -1,0 +1,236 @@
+{
+  "checked_on": "2026-11-02",
+  "assets": [
+    {
+      "local_path": "data/raw/faisal_ajao/LICENSE",
+      "kind": "upstream_document",
+      "bytes": 1068,
+      "sha256": "e4b06aef2d9c2186c9ce3db3e5a535bc42baf29028118248741e9994c9aeab99"
+    },
+    {
+      "local_path": "data/raw/faisal_ajao/README.md",
+      "kind": "upstream_document",
+      "bytes": 2720,
+      "sha256": "63c42f790fd742f5a06dee1931dee6f641d450d57f19414805589140b5f67ff0"
+    },
+    {
+      "local_path": "data/raw/faisal_ajao/car_park_pos",
+      "kind": "serialized_roi",
+      "bytes": 521,
+      "sha256": "aac488757a02508f953bd884fdbb7bd87fbe7fe247b59eadf965e6a0283bae6d"
+    },
+    {
+      "local_path": "data/raw/faisal_ajao/image.png",
+      "kind": "image",
+      "bytes": 1011513,
+      "sha256": "70993abac3b5afcfa5c83155be9c7f3486c6dcc1db2dda29e1aca88c234f284e",
+      "width": 1100,
+      "height": 720,
+      "format": "PNG"
+    },
+    {
+      "local_path": "data/raw/faisal_ajao/output.png",
+      "kind": "image",
+      "bytes": 982637,
+      "sha256": "63d3a51a40205337d50427fbe753cc71a1ed7ba4f3e3dd7447a55455887bc246",
+      "width": 1100,
+      "height": 720,
+      "format": "PNG"
+    },
+    {
+      "local_path": "data/raw/faisal_ajao/video.mp4",
+      "kind": "video",
+      "bytes": 10607736,
+      "sha256": "f2d804e9b2e8ff7e0ae9776068a9cbc8126b6bce2e09ef6f56d3ad9c8fe84069",
+      "video_id": "shared_carpark",
+      "width": 1100,
+      "height": 720,
+      "fps": 24.0,
+      "reported_frames": 679,
+      "decoded_frames": 679,
+      "duration_s": 28.291666666666668,
+      "full_decode": "ok",
+      "metadata_note": ""
+    },
+    {
+      "local_path": "data/raw/olgarose/README.md",
+      "kind": "upstream_document",
+      "bytes": 8462,
+      "sha256": "2d0e9c2e842f848bb8bd1a4a34cf37d3488c647c9b314ed7e4b9bf6d6a205ec5"
+    },
+    {
+      "local_path": "data/raw/olgarose/parking_lot/experiments/empty_lot.jpg",
+      "kind": "image",
+      "bytes": 164598,
+      "sha256": "790e952d3f66aa6f512e480cfbd84b37d0e73c80d34c5028bd19cc5feeda8c76",
+      "width": 1024,
+      "height": 663,
+      "format": "JPEG"
+    },
+    {
+      "local_path": "data/raw/olgarose/parking_lot/experiments/hough_lines/s_canny.png",
+      "kind": "image",
+      "bytes": 23825,
+      "sha256": "28b71cbd4e7adeac852cd4dfdd7b687c8c1953d2980e49ef61d5b7df88d20b5f",
+      "width": 399,
+      "height": 304,
+      "format": "PNG"
+    },
+    {
+      "local_path": "data/raw/olgarose/parking_lot/experiments/hough_lines/s_gray.png",
+      "kind": "image",
+      "bytes": 114500,
+      "sha256": "aefe629774d0e19e3eb66a50a20222ae71124054ba96c2355952244ec911848a",
+      "width": 402,
+      "height": 302,
+      "format": "PNG"
+    },
+    {
+      "local_path": "data/raw/olgarose/parking_lot/experiments/hough_lines/s_line.png",
+      "kind": "image",
+      "bytes": 208362,
+      "sha256": "ab53f5b9fbb83dc04a59e76b44768f9dc387500cae49f33a7d1282dafbfba35d",
+      "width": 402,
+      "height": 303,
+      "format": "PNG"
+    },
+    {
+      "local_path": "data/raw/olgarose/parking_lot/experiments/hough_lines/s_org.png",
+      "kind": "image",
+      "bytes": 277670,
+      "sha256": "c273d4f9b6736203f6c5dbcc3643cff6d200462eac434e09b74f6f5724e5541e",
+      "width": 798,
+      "height": 598,
+      "format": "PNG"
+    },
+    {
+      "local_path": "data/raw/olgarose/parking_lot/experiments/parking_lot.png",
+      "kind": "image",
+      "bytes": 2066204,
+      "sha256": "a4fde0a46efc74c706208351751c16331e962b08f355cc0469173cd7bf8a0ca0",
+      "width": 1730,
+      "height": 960,
+      "format": "PNG"
+    },
+    {
+      "local_path": "data/raw/olgarose/parking_lot/experiments/stack_overflow_lines/answer_lines.png",
+      "kind": "image",
+      "bytes": 259677,
+      "sha256": "fcba97469b9632e464aea7f2a704a7cd01b644f58440c41821e4d133ee3203f9",
+      "width": 798,
+      "height": 600,
+      "format": "PNG"
+    },
+    {
+      "local_path": "data/raw/olgarose/parking_lot/experiments/stack_overflow_lines/stack_overflow_lines.png",
+      "kind": "image",
+      "bytes": 661739,
+      "sha256": "7f7df786821eeb06f8fcd99e7416d1b7dbe1243da2dc8dae679272e522df6161",
+      "width": 695,
+      "height": 523,
+      "format": "PNG"
+    },
+    {
+      "local_path": "data/raw/olgarose/parking_lot/images/parking_lot_1.png",
+      "kind": "image",
+      "bytes": 617922,
+      "sha256": "946c281e5e63144fed1ecf77e37da7a2e410ff944aa1f8d1eb25ed4759f59d3e",
+      "width": 865,
+      "height": 480,
+      "format": "PNG"
+    },
+    {
+      "local_path": "data/raw/olgarose/parking_lot/images/parking_lot_2.png",
+      "kind": "image",
+      "bytes": 1010099,
+      "sha256": "c4e259ea223976939f6c1295b74a2a174347e0f7e74acc52aa697789a9759712",
+      "width": 960,
+      "height": 723,
+      "format": "PNG"
+    },
+    {
+      "local_path": "data/raw/olgarose/parking_lot/videos/parking_lot_1.mp4",
+      "kind": "video",
+      "bytes": 9979473,
+      "sha256": "9c198ce31d3b32fa5c883103f67bad7c7712e41b46d9c1240759c84b7624460e",
+      "video_id": "olgarose_lot_1",
+      "width": 854,
+      "height": 480,
+      "fps": 15.000004870998023,
+      "reported_frames": 2248,
+      "decoded_frames": 2247,
+      "duration_s": 149.7999513549822,
+      "full_decode": "frame_count_mismatch",
+      "metadata_note": "Decoded until read failure/EOF; reported and decoded counts differ. Use decoded count and inspect tail before evaluation."
+    },
+    {
+      "local_path": "data/raw/olgarose/parking_lot/videos/parking_lot_2.mp4",
+      "kind": "video",
+      "bytes": 23807535,
+      "sha256": "dd85b2a9337b398c14ec8c362fd9adf7d597aac114a6139a6fe654cdd61c5de8",
+      "video_id": "olgarose_lot_2",
+      "width": 960,
+      "height": 720,
+      "fps": 29.970109386924445,
+      "reported_frames": 3770,
+      "decoded_frames": 3770,
+      "duration_s": 125.792,
+      "full_decode": "ok",
+      "metadata_note": ""
+    },
+    {
+      "local_path": "data/raw/mohd_faizy/LICENSE",
+      "kind": "upstream_document",
+      "bytes": 1067,
+      "sha256": "9aba1089e8b6506e4188e131898113ae704a0bb5918f54a5fc8a83e503dbfc2a"
+    },
+    {
+      "local_path": "data/raw/mohd_faizy/README.md",
+      "kind": "upstream_document",
+      "bytes": 7370,
+      "sha256": "c93f80a285ea58dbfa824715820ddb48dde516c1661583342882f5c3353034ab"
+    },
+    {
+      "local_path": "data/raw/mohd_faizy/asset/CarParkPos",
+      "kind": "serialized_roi",
+      "bytes": 582,
+      "sha256": "b6a3e070e85a95ff3829b046c901a8e8618a9f69c727ce95beb2c0967c0c5895"
+    },
+    {
+      "local_path": "data/raw/mohd_faizy/asset/banner.png",
+      "kind": "image",
+      "bytes": 1320000,
+      "sha256": "0bd7096dce999e915ed15ba6d0299f79e6ceb868a14e5021b4cb961bbcd68968",
+      "width": 2172,
+      "height": 619,
+      "format": "PNG"
+    },
+    {
+      "local_path": "data/raw/mohd_faizy/asset/demo.gif",
+      "kind": "image",
+      "bytes": 8249587,
+      "sha256": "c4bd3e7d89a39360fe686a25648b108c07bcb7fdb973332dd47096dc78c494e2",
+      "width": 960,
+      "height": 467,
+      "format": "GIF"
+    },
+    {
+      "local_path": "data/raw/mohd_faizy/asset/demo_preview.png",
+      "kind": "image",
+      "bytes": 1273262,
+      "sha256": "277f6241e71d3d4bcac11fa79d90fb6ac337f1b9ce59d838697565eb967510c8",
+      "width": 1480,
+      "height": 720,
+      "format": "PNG"
+    },
+    {
+      "local_path": "data/raw/mohd_faizy/asset/sys-pipeline.png",
+      "kind": "image",
+      "bytes": 1180045,
+      "sha256": "d8ab8921c0d62db758c85b893f45aacd9d932186e5aaaae3898827ce59f5c23c",
+      "width": 1024,
+      "height": 1536,
+      "format": "PNG"
+    }
+  ]
+}

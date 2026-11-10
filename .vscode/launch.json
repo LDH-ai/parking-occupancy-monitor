@@ -1,0 +1,33 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "ROI 편집 - 팀원 인계 69칸",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "parking_monitor",
+      "python": "${workspaceFolder}/.venv/Scripts/python.exe",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "args": [
+        "roi-pick", "data/raw/faisal_ajao/video.mp4",
+        "--output", "configs/roi.shared_carpark.team.json",
+        "--video-id", "shared_carpark", "--zone", "A", "--prefix", "A"
+      ]
+    },
+    {
+      "name": "ROI 편집 - 공통 영상",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "parking_monitor",
+      "python": "${workspaceFolder}/.venv/Scripts/python.exe",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "args": [
+        "roi-pick", "data/raw/faisal_ajao/video.mp4",
+        "--output", "configs/roi.shared_carpark.json",
+        "--video-id", "shared_carpark", "--zone", "right", "--prefix", "R"
+      ]
+    }
+  ]
+}

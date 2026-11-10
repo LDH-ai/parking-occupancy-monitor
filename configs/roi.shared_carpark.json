@@ -1,0 +1,240 @@
+{
+  "schema_version": 1,
+  "status": "draft_agent_annotation",
+  "reference_size": [
+    1100,
+    720
+  ],
+  "source": {
+    "video_id": "shared_carpark",
+    "video_sha256": "f2d804e9b2e8ff7e0ae9776068a9cbc8126b6bce2e09ef6f56d3ad9c8fe84069",
+    "annotation_frame_id": 0
+  },
+  "annotation": {
+    "method": "agent_manual_visual_annotation",
+    "review_status": "needs_user_review",
+    "notes": "Ten visible bays in the rightmost parking row. Corners placed inside painted boundaries by visual inspection of actual video frame 0; not ground-truth occupancy or calibrated thresholds."
+  },
+  "slots": [
+    {
+      "slot_id": "R01",
+      "zone": "right",
+      "vertices": [
+        [
+          904,
+          196
+        ],
+        [
+          1002,
+          196
+        ],
+        [
+          1002,
+          232
+        ],
+        [
+          904,
+          232
+        ]
+      ]
+    },
+    {
+      "slot_id": "R02",
+      "zone": "right",
+      "vertices": [
+        [
+          904,
+          244
+        ],
+        [
+          1002,
+          244
+        ],
+        [
+          1002,
+          280
+        ],
+        [
+          904,
+          280
+        ]
+      ]
+    },
+    {
+      "slot_id": "R03",
+      "zone": "right",
+      "vertices": [
+        [
+          904,
+          292
+        ],
+        [
+          1002,
+          292
+        ],
+        [
+          1002,
+          328
+        ],
+        [
+          904,
+          328
+        ]
+      ]
+    },
+    {
+      "slot_id": "R04",
+      "zone": "right",
+      "vertices": [
+        [
+          904,
+          340
+        ],
+        [
+          1002,
+          340
+        ],
+        [
+          1002,
+          376
+        ],
+        [
+          904,
+          376
+        ]
+      ]
+    },
+    {
+      "slot_id": "R05",
+      "zone": "right",
+      "vertices": [
+        [
+          904,
+          388
+        ],
+        [
+          1002,
+          388
+        ],
+        [
+          1002,
+          424
+        ],
+        [
+          904,
+          424
+        ]
+      ]
+    },
+    {
+      "slot_id": "R06",
+      "zone": "right",
+      "vertices": [
+        [
+          904,
+          436
+        ],
+        [
+          1002,
+          436
+        ],
+        [
+          1002,
+          472
+        ],
+        [
+          904,
+          472
+        ]
+      ]
+    },
+    {
+      "slot_id": "R07",
+      "zone": "right",
+      "vertices": [
+        [
+          904,
+          484
+        ],
+        [
+          1002,
+          484
+        ],
+        [
+          1002,
+          520
+        ],
+        [
+          904,
+          520
+        ]
+      ]
+    },
+    {
+      "slot_id": "R08",
+      "zone": "right",
+      "vertices": [
+        [
+          904,
+          532
+        ],
+        [
+          1002,
+          532
+        ],
+        [
+          1002,
+          568
+        ],
+        [
+          904,
+          568
+        ]
+      ]
+    },
+    {
+      "slot_id": "R09",
+      "zone": "right",
+      "vertices": [
+        [
+          904,
+          580
+        ],
+        [
+          1002,
+          580
+        ],
+        [
+          1002,
+          616
+        ],
+        [
+          904,
+          616
+        ]
+      ]
+    },
+    {
+      "slot_id": "R10",
+      "zone": "right",
+      "vertices": [
+        [
+          904,
+          628
+        ],
+        [
+          1002,
+          628
+        ],
+        [
+          1002,
+          664
+        ],
+        [
+          904,
+          664
+        ]
+      ]
+    }
+  ]
+}

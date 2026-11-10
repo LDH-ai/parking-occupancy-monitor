@@ -1,0 +1,5 @@
+# Preserve byte-level provenance checks across Git checkouts.
+data/handoffs/shared_carpark_2026-11-10/roi.json -text whitespace=cr-at-eol
+data/handoffs/shared_carpark_2026-11-10/pilot_ground_truth.csv -text whitespace=cr-at-eol
+data/handoffs/shared_carpark_2026-11-10/roi_picker.py -text whitespace=cr-at-eol
+data/manifests/splits.csv -text whitespace=cr-at-eol

@@ -1,0 +1,123 @@
+{
+  "review_date": "2026-11-10",
+  "reviewer": "agent_visual_review",
+  "independent_human_review": false,
+  "stage10_minimum_gate": "complete",
+  "scope": "Shared fixed camera, 20 selected bays; frozen stage10 development snapshot, not final-performance evaluation freeze.",
+  "active_roi": "configs/roi.shared_carpark.final.json",
+  "candidate_roi": "configs/roi.shared_carpark.team.json",
+  "selected_slot_ids": [
+    "A03",
+    "A04",
+    "A05",
+    "A06",
+    "A07",
+    "A08",
+    "A09",
+    "A10",
+    "A11",
+    "A12",
+    "A15",
+    "A16",
+    "A17",
+    "A18",
+    "A19",
+    "A20",
+    "A21",
+    "A22",
+    "A23",
+    "A24"
+  ],
+  "selection_basis": "Two adjacent contiguous parking columns, rows 3-12; omit top two rows containing long vehicles/island edges. Geometry and scope determined before any detector outcomes.",
+  "boundary_changes": "Expand original feature-core polygons to just inside painted bay separators. Preserve original 69-slot polygons separately.",
+  "reviewed_labels": "data/labels/pilot.shared_carpark.reviewed.csv",
+  "team_labels": "data/labels/pilot.shared_carpark.csv",
+  "label_changes": [
+    {
+      "frame_id": 151,
+      "slot_id": "A23",
+      "from": "unknown",
+      "to": "occupied",
+      "basis": "Visible vehicle body overlaps revised bay polygon; quarter-second neighboring frames inspected. Original labels preserved separately.",
+      "evidence": "tmp/stage10_review/A23_unknown_151.jpg"
+    },
+    {
+      "frame_id": 377,
+      "slot_id": "A20",
+      "from": "unknown",
+      "to": "occupied",
+      "basis": "Visible vehicle body overlaps revised bay polygon; quarter-second neighboring frames inspected. Original labels preserved separately.",
+      "evidence": "tmp/stage10_review/A20_unknown_377.jpg"
+    }
+  ],
+  "reviewed_label_counts": {
+    "free": 21,
+    "occupied": 9,
+    "unknown": 0
+  },
+  "visual_evidence": {
+    "full_clip_decoded_frames": 679,
+    "shared_visual_frame_ids": [
+      0,
+      24,
+      48,
+      72,
+      75,
+      96,
+      120,
+      144,
+      151,
+      168,
+      192,
+      216,
+      226,
+      240,
+      264,
+      288,
+      301,
+      312,
+      336,
+      360,
+      377,
+      384,
+      408,
+      432,
+      452,
+      456,
+      480,
+      504,
+      527,
+      528,
+      552,
+      576,
+      600,
+      603,
+      624,
+      648,
+      672,
+      678
+    ],
+    "exit_sequence_samples": {
+      "A23": {
+        "start_s": 4,
+        "end_s_exclusive": 9,
+        "step_s": 0.25
+      },
+      "A20": {
+        "start_s": 13,
+        "end_s_exclusive": 18,
+        "step_s": 0.25
+      }
+    },
+    "files": "tmp/stage10_review/final20_*; A23_quarter_second.jpg; A20_quarter_second.jpg; *_unknown_*.jpg",
+    "observed_alignment": "No gross bay/coordinate misalignment in the inspected temporal sequence; not a measured camera-motion bound."
+  },
+  "known_limits": [
+    "Only 3 of the selected 20 bays have pilot labels. A20/A23 have both states; A07 has only free; 17 bays have no labels.",
+    "Agent visual review is not independent human ground-truth review.",
+    "Other-view ROI and labels remain to be produced before using those views for detector evaluation.",
+    "Test-frame/event targets and detector calibration are not completed by this stage10 freeze.",
+    "Other-view event review uses temporal samples and does not replace independent human continuous-event annotation."
+  ],
+  "performance_measured": false
+}

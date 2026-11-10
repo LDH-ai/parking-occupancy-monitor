@@ -54,10 +54,32 @@ def main(argv=None):
     commands.add_parser("doctor", help="환경 및 합성 영상 연산 확인")
     info = commands.add_parser("video-info", help="저장 영상의 메타데이터와 첫 프레임 확인")
     info.add_argument("path")
+    picker = commands.add_parser("roi-pick", help="클릭으로 주차면 ROI 지정·저장·불러오기")
+    picker.add_argument("video")
+    picker.add_argument("--output", required=True)
+    picker.add_argument("--video-id")
+    picker.add_argument("--frame", type=int, default=0)
+    picker.add_argument("--zone", default="A")
+    picker.add_argument("--prefix", default="S")
+    preview = commands.add_parser("roi-preview", help="저장한 ROI를 영상 프레임에 표시해 이미지로 검증")
+    preview.add_argument("video")
+    preview.add_argument("--roi", required=True)
+    preview.add_argument("--output", required=True)
+    preview.add_argument("--frame", type=int, default=0)
+    preview.add_argument("--width", type=int)
     args = parser.parse_args(argv)
     try:
-        result = doctor() if args.command == "doctor" else video_info(args.path)
-    except (ValueError, cv2.error) as error:
+        if args.command == "doctor":
+            result = doctor()
+        elif args.command == "video-info":
+            result = video_info(args.path)
+        elif args.command == "roi-pick":
+            from .roi_editor import pick_roi
+            result = pick_roi(args.video, args.output, args.video_id, args.frame, args.zone, args.prefix)
+        else:
+            from .roi import preview_roi
+            result = preview_roi(args.video, args.roi, args.output, args.frame, args.width)
+    except (ValueError, OSError, cv2.error) as error:
         parser.exit(1, f"오류: {error}\n")
     print(json.dumps(result, ensure_ascii=False, indent=2))
     return 0

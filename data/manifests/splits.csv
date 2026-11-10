@@ -1,1 +1,8 @@
 video_id,session_id,split,start_s,end_s
+shared_carpark,clip_shared_carpark,calibration,0,28.291666666666668
+olgarose_lot_1,clip_olgarose_lot_1,calibration,0,60
+olgarose_lot_1,clip_olgarose_lot_1,validation,70,110
+olgarose_lot_1,clip_olgarose_lot_1,test,120,145
+olgarose_lot_2,clip_olgarose_lot_2,calibration,0,55
+olgarose_lot_2,clip_olgarose_lot_2,validation,65,85
+olgarose_lot_2,clip_olgarose_lot_2,test,95,125

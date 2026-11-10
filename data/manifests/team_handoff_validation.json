@@ -1,0 +1,133 @@
+{
+  "handoff_date": "2026-11-10",
+  "video_id": "shared_carpark",
+  "source_video_sha256": "f2d804e9b2e8ff7e0ae9776068a9cbc8126b6bce2e09ef6f56d3ad9c8fe84069",
+  "same_as_existing_video": true,
+  "original_files": {
+    "roi.json": {
+      "sha256": "19b2b6b46962efb7b8be8bbee283a1ad8ac84f3955848a150fde3d1ba75d37ae",
+      "bytes": 19129
+    },
+    "pilot_ground_truth.csv": {
+      "sha256": "0f9ff7784516a9e989def04833a6f8b155a4f861e25a77e873130a6f5392d5fb",
+      "bytes": 1255
+    },
+    "roi_picker.py": {
+      "sha256": "4ba162875e316196dba14d250a6a1076e6ee7e3f01ee785474b5dafc053b94a8",
+      "bytes": 4567
+    }
+  },
+  "normalized_roi": "configs/roi.shared_carpark.team.json",
+  "normalized_labels": "data/labels/pilot.shared_carpark.csv",
+  "mapping": {
+    "video_id": "video.mp4 -> shared_carpark",
+    "frame_id": "original one-based frame_id minus 1 -> zero-based frame_id",
+    "timestamp_sec": "timestamp_s; original rounded values preserved",
+    "space_id": "slot_id; A01-A69 preserved",
+    "ground_truth": "label; vacant -> free; occupied/unknown unchanged",
+    "note": "reason; original text preserved",
+    "reviewed_by": "empty; independent review not recorded",
+    "roi": "reference_resolution -> reference_size; spaces -> slots; id -> slot_id; points -> vertices"
+  },
+  "validation": {
+    "roi_count": 69,
+    "geometry": "passed",
+    "save_load_round_trip": "passed",
+    "video_hash_and_resolution": "passed",
+    "previews": [
+      {
+        "frame_id": 0,
+        "size": [
+          1100,
+          720
+        ],
+        "slot_count": 69,
+        "minimum_mask_pixels": 2378
+      },
+      {
+        "frame_id": 0,
+        "size": [
+          550,
+          360
+        ],
+        "slot_count": 69,
+        "minimum_mask_pixels": 630
+      },
+      {
+        "frame_id": 377,
+        "size": [
+          1100,
+          720
+        ],
+        "slot_count": 69,
+        "minimum_mask_pixels": 2378
+      },
+      {
+        "frame_id": 377,
+        "size": [
+          550,
+          360
+        ],
+        "slot_count": 69,
+        "minimum_mask_pixels": 630
+      },
+      {
+        "frame_id": 678,
+        "size": [
+          1100,
+          720
+        ],
+        "slot_count": 69,
+        "minimum_mask_pixels": 2378
+      },
+      {
+        "frame_id": 678,
+        "size": [
+          550,
+          360
+        ],
+        "slot_count": 69,
+        "minimum_mask_pixels": 630
+      }
+    ],
+    "label_rows": 30,
+    "label_frames": 10,
+    "labeled_slots": [
+      "A07",
+      "A20",
+      "A23"
+    ],
+    "label_counts": {
+      "free": 21,
+      "occupied": 7,
+      "unknown": 2
+    },
+    "duplicate_label_keys": 0,
+    "rows_inside_current_calibration_block_0_28_seconds": 27,
+    "rows_outside_current_split": [
+      {
+        "frame_id": 678,
+        "slot_id": "A07",
+        "timestamp_s": "28.250"
+      },
+      {
+        "frame_id": 678,
+        "slot_id": "A20",
+        "timestamp_s": "28.250"
+      },
+      {
+        "frame_id": 678,
+        "slot_id": "A23",
+        "timestamp_s": "28.250"
+      }
+    ]
+  },
+  "remaining": [
+    "Full-bay boundary and continuous entry/exit review",
+    "Independent human label review and more labels",
+    "Freeze 10-20 evaluation spaces and final data splits",
+    "Other-view ROI and data collection",
+    "Video-specific usage clearance; see data/USAGE_REVIEW.md"
+  ],
+  "performance_measured": false
+}

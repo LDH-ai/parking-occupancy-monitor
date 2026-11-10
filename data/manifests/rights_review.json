@@ -1,0 +1,91 @@
+{
+  "reviewed_on": "2026-11-10",
+  "scope": "Downloaded upstream samples; repository declarations and footage provenance checked separately",
+  "conclusion": "Course-project data adoption confirmed on user-reported MIT basis; repository declarations and media-specific independent verification remain distinct.",
+  "videos": [
+    {
+      "video_id": "shared_carpark",
+      "local_path": "data/raw/faisal_ajao/video.mp4",
+      "repository": "faisal-ajao/parking-space-counter-opencv",
+      "repository_license": "MIT",
+      "footage_origin": "unverified",
+      "footage_license": "MIT (user-reported; media-specific declaration not independently verified)",
+      "status": "selected_for_course_project_on_user_reported_MIT",
+      "approved_for_final_dataset": true,
+      "public_demo_cleared": false,
+      "redistribution_cleared": false,
+      "note": "Accepted for local course-project development/evaluation on the user-provided MIT basis. Raw footage remains excluded from Git. Public footage publication is outside this change; those flags do not block stage10 development acceptance.",
+      "approval_basis": "User MIT statement on 2026-11-10; repository_license field retains independently observed repository declaration."
+    },
+    {
+      "video_id": "olgarose_lot_1",
+      "local_path": "data/raw/olgarose/parking_lot/videos/parking_lot_1.mp4",
+      "repository": "olgarose/ParkingLot",
+      "repository_license": null,
+      "footage_origin": "unverified",
+      "footage_license": "MIT (user-reported; media-specific declaration not independently verified)",
+      "status": "selected_for_course_project_on_user_reported_MIT",
+      "approved_for_final_dataset": true,
+      "public_demo_cleared": false,
+      "redistribution_cleared": false,
+      "note": "Accepted for local course-project development/evaluation on the user-provided MIT basis. Raw footage remains excluded from Git. Public footage publication is outside this change; those flags do not block stage10 development acceptance.",
+      "approval_basis": "User MIT statement on 2026-11-10; repository_license field retains independently observed repository declaration."
+    },
+    {
+      "video_id": "olgarose_lot_2",
+      "local_path": "data/raw/olgarose/parking_lot/videos/parking_lot_2.mp4",
+      "repository": "olgarose/ParkingLot",
+      "repository_license": null,
+      "footage_origin": "unverified",
+      "footage_license": "MIT (user-reported; media-specific declaration not independently verified)",
+      "status": "selected_for_course_project_on_user_reported_MIT",
+      "approved_for_final_dataset": true,
+      "public_demo_cleared": false,
+      "redistribution_cleared": false,
+      "note": "Accepted for local course-project development/evaluation on the user-provided MIT basis. Raw footage remains excluded from Git. Public footage publication is outside this change; those flags do not block stage10 development acceptance.",
+      "approval_basis": "User MIT statement on 2026-11-10; repository_license field retains independently observed repository declaration."
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://github.com/faisal-ajao/parking-space-counter-opencv/blob/1711e343cef555d90056601999978bfaa7b5a420/LICENSE",
+      "finding": "MIT; copyright 2025 Faisal Ajao; preserve copyright and permission notices when using covered software"
+    },
+    {
+      "url": "https://github.com/mohd-faizy/parking-occupancy-detection/blob/ad79b62dec513471af1f34179ee1ec84d13d1c90/LICENSE",
+      "finding": "MIT; copyright 2026 Mohd Faizy; no separate footage origin or media license identified"
+    },
+    {
+      "url": "https://github.com/olgarose/ParkingLot/tree/5367aba807ccf99a5697dbbf6790ddc011dda67d",
+      "finding": "Complete tree has no LICENSE/COPYING/NOTICE file; README has no express licensing terms"
+    },
+    {
+      "url": "https://github.com/faisal-ajao/parking-space-counter-opencv/commit/7d473c6da89be26bab469daef0417333f7881830",
+      "finding": "Video added in 2025; commit message identifies added files but not filming origin or rights"
+    },
+    {
+      "url": "https://github.com/olgarose/ParkingLot/commit/29399684a7c91787f679765db0d9a9eb7e09f0fc",
+      "finding": "Two videos included in initial 2018 implementation; file-addition history is not evidence of filming ownership"
+    },
+    {
+      "url": "https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository",
+      "finding": "Public visibility and ability to view/fork do not constitute a general reuse license"
+    }
+  ],
+  "provenance_leads": [
+    {
+      "candidate": "Murtaza / Computer Vision Zone parking-space tutorial",
+      "status": "unconfirmed lead only",
+      "note": "Other repositories mention this tutorial; did not establish original filming source, exact asset chain or applicable footage terms. Do not attribute footage ownership on this basis."
+    }
+  ],
+  "next_actions": [
+    "Preserve source URLs and available license notices. Record the exact source-specific media license if supplied later. No external contact performed."
+  ],
+  "contact_performed": false,
+  "user_confirmation": {
+    "date": "2026-11-10",
+    "statement": "MIT 오픈소스 동영상",
+    "context": "Response to source/usage-basis question about current three clips; recorded as user-supplied basis, not a newly discovered per-video license."
+  }
+}

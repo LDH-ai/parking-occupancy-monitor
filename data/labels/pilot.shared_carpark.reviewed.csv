@@ -1,0 +1,31 @@
+video_id,frame_id,timestamp_s,slot_id,label,reason,reviewed_by
+shared_carpark,0,0.000,A07,free,,agent_visual_review
+shared_carpark,0,0.000,A20,occupied,,agent_visual_review
+shared_carpark,0,0.000,A23,occupied,,agent_visual_review
+shared_carpark,75,3.125,A07,free,,agent_visual_review
+shared_carpark,75,3.125,A20,occupied,,agent_visual_review
+shared_carpark,75,3.125,A23,occupied,,agent_visual_review
+shared_carpark,151,6.292,A07,free,,agent_visual_review
+shared_carpark,151,6.292,A20,occupied,,agent_visual_review
+shared_carpark,151,6.292,A23,occupied,보정된 주차면 경계 안에 차량 차체 일부가 남아 있음을 확대 프레임과 전후 시퀀스로 확인. 원본 불명 사유: 출차 중 차량 앞부분과 그림자가 주차 칸 경계에서 겹쳐 확인 어려움,agent_visual_review
+shared_carpark,226,9.417,A07,free,,agent_visual_review
+shared_carpark,226,9.417,A20,occupied,,agent_visual_review
+shared_carpark,226,9.417,A23,free,,agent_visual_review
+shared_carpark,301,12.542,A07,free,,agent_visual_review
+shared_carpark,301,12.542,A20,occupied,,agent_visual_review
+shared_carpark,301,12.542,A23,free,,agent_visual_review
+shared_carpark,377,15.708,A07,free,,agent_visual_review
+shared_carpark,377,15.708,A20,occupied,보정된 주차면 경계 안에 차량 차체 일부가 남아 있음을 확대 프레임과 전후 시퀀스로 확인. 원본 불명 사유: 출차 중 차량 끝과 주차 칸 경계가 맞닿아 포함 여부 확인 어려움,agent_visual_review
+shared_carpark,377,15.708,A23,free,,agent_visual_review
+shared_carpark,452,18.833,A07,free,,agent_visual_review
+shared_carpark,452,18.833,A20,free,,agent_visual_review
+shared_carpark,452,18.833,A23,free,,agent_visual_review
+shared_carpark,527,21.958,A07,free,,agent_visual_review
+shared_carpark,527,21.958,A20,free,,agent_visual_review
+shared_carpark,527,21.958,A23,free,,agent_visual_review
+shared_carpark,603,25.125,A07,free,,agent_visual_review
+shared_carpark,603,25.125,A20,free,,agent_visual_review
+shared_carpark,603,25.125,A23,free,,agent_visual_review
+shared_carpark,678,28.250,A07,free,,agent_visual_review
+shared_carpark,678,28.250,A20,free,,agent_visual_review
+shared_carpark,678,28.250,A23,free,,agent_visual_review

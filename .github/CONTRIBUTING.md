@@ -14,7 +14,7 @@ cd parking-occupancy-monitor
 Python 경로는 본인 PC에 맞게 바꾼다. VS Code에서 복제한 폴더를 열고 `.venv` 인터프리터를 선택한다. 영상과 가상환경은 각 PC에서 준비한다.
 
 ## 작업 한 건의 순서
-1. [단계별 작업표](docs/TEAM_ROADMAP.md)에서 선행 조건을 확인하고 GitHub Issues의 단계별 작업 양식으로 담당자와 완료 조건을 기록한다.
+1. [단계별 작업표](../docs/project/team-roadmap.md)에서 선행 조건을 확인하고 GitHub Issues의 단계별 작업 양식으로 담당자와 완료 조건을 기록한다.
 2. 변경 사항이 없는 상태에서 아래 명령으로 작업 브랜치를 만든다.
 
 ```powershell

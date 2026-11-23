@@ -10,3 +10,6 @@ data/raw/*
 results/*
 !results/.gitkeep
 tmp/
+/docs/deliverables/presentation/site/
+/docs/deliverables/presentation/deployment.json
+/docs/deliverables/presentation/production-notes.md

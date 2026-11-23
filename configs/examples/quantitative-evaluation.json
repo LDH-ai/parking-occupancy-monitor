@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "videos": [
+    {
+      "video_id": "school_session_01",
+      "view_id": "school_front",
+      "path": "../../data/raw/school_session_01.mp4",
+      "roi": "../roi.school_session_01.json"
+    },
+    {
+      "video_id": "school_session_02",
+      "view_id": "school_front",
+      "path": "../../data/raw/school_session_02.mp4",
+      "roi": "../roi.school_session_02.json"
+    }
+  ],
+  "splits": "../../data/manifests/school.splits.csv",
+  "labels": {
+    "calibration": "../../data/labels/school.calibration.csv",
+    "validation": "../../data/labels/school.validation.csv",
+    "test": "../../data/labels/school.test.csv"
+  },
+  "events": {
+    "validation": "../../data/labels/school.validation.events.csv",
+    "test": "../../data/labels/school.test.events.csv"
+  },
+  "pixel_ratio": {
+    "gaussian_kernel": [5, 5],
+    "adaptive_block_size": 25,
+    "adaptive_c": 16,
+    "median_kernel": 5,
+    "morphology": "dilate",
+    "morphology_kernel": [3, 3]
+  },
+  "laplacian": {
+    "gaussian_kernel": [5, 5],
+    "ksize": 1
+  },
+  "min_per_class": 3,
+  "component_area_px": 12
+}

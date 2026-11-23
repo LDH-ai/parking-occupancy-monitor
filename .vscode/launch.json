@@ -39,7 +39,7 @@
       "console": "integratedTerminal",
       "args": [
         "roi-pick", "data/raw/faisal_ajao/video.mp4",
-        "--output", "configs/roi.shared_carpark.json",
+        "--output", "configs/drafts/roi.shared_carpark.json",
         "--video-id", "shared_carpark", "--zone", "right", "--prefix", "R"
       ]
     }

@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "status": "example_not_calibrated",
+  "pixel_ratio": {
+    "gaussian_kernel": [5, 5],
+    "adaptive_block_size": 25,
+    "adaptive_c": 16.0,
+    "median_kernel": 5,
+    "morphology": "dilate",
+    "morphology_kernel": [3, 3],
+    "min_component_area_px": 0
+  },
+  "note": "시작 예시 값. 형태학 조합과 커널 크기는 검증 구간에서 선택한다."
+}

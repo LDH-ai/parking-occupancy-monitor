@@ -11,7 +11,7 @@
 .\.venv\Scripts\python.exe scripts/validate_stage10.py
 ```
 
-파일 목록·해시는 `data/manifests/stage10.freeze.json`, 검수와 한계는 [10주차 검수 기록](stage10-review.md)에 있다. 수정이 필요하면 확정본을 조용히 덮지 말고 사유와 새 버전을 남긴다. 아래 69칸 인계본과 10칸 에이전트 초안은 이전 상태의 별도 자료다.
+파일 목록·해시는 `data/manifests/stage10.freeze.json`, 검수와 한계는 [10주차 검수 기록](../stage10-review.md)에 있다. 수정이 필요하면 확정본을 조용히 덮지 말고 사유와 새 버전을 남긴다. 아래 69칸 인계본과 10칸 에이전트 초안은 이전 상태의 별도 자료다.
 
 ## 준비한 실제 영상 초안
 
@@ -22,9 +22,9 @@
 .\.venv\Scripts\python.exe -m parking_monitor roi-pick .\data\raw\faisal_ajao\video.mp4 --output .\configs\roi.shared_carpark.team.json --video-id shared_carpark --zone A --prefix A
 ```
 
-69칸의 형상·범위·중복 ID·비중첩·마스크 생성·영상 해시·저장/재로드를 검증했다. 프레임 0·377·678에서 원본과 50% 크기로 미리보기를 생성했다. 시작·끝 화면 및 파일럿 10시점을 시각적으로 검토했지만, 주차면 안쪽으로 좁게 잡힌 영역의 일부 진입 판정은 연속 구간에서 추가 검수해야 한다. 69칸은 후보 전체이며 로드맵의 10~20칸 평가 대상 확정이나 해당 조건의 속도 측정을 뜻하지 않는다. [인계 원본·파일럿 정답 안내](../data/handoffs/shared_carpark_2026-11-10/README.md)를 따른다.
+69칸의 형상·범위·중복 ID·비중첩·마스크 생성·영상 해시·저장/재로드를 검증했다. 프레임 0·377·678에서 원본과 50% 크기로 미리보기를 생성했다. 시작·끝 화면 및 파일럿 10시점을 시각적으로 검토했지만, 주차면 안쪽으로 좁게 잡힌 영역의 일부 진입 판정은 연속 구간에서 추가 검수해야 한다. 69칸은 후보 전체이며 로드맵의 10~20칸 평가 대상 확정이나 해당 조건의 속도 측정을 뜻하지 않는다. [인계 원본·파일럿 정답 안내](../../data/handoffs/shared_carpark_2026-11-10/README.md)를 따른다.
 
-`configs/roi.shared_carpark.json`에는 공통 영상의 오른쪽 주차열 10칸(R01~R10)을 저장했다.
+`configs/drafts/roi.shared_carpark.json`에는 공통 영상의 오른쪽 주차열 10칸(R01~R10)을 저장했다.
 실제 영상 0번 프레임을 눈으로 확인해 주차선 안쪽에 네 꼭짓점을 지정한 에이전트 초안이며, 사용자 검토는 아직 하지 않았다.
 기준 해상도는 1100×720, 구역은 `right`다. 원본 영상 SHA256·영상 ID·지정 프레임을 함께 기록했다.
 소스 라이선스 문제·사람 정답·임계값 보정·분할 최종 확정은 별도 작업이다. 이 공통 영상은 현재 보정용에만 배정되어 있다.
@@ -32,7 +32,7 @@
 ## 기존 초안 열기
 
 ```powershell
-.\.venv\Scripts\python.exe -m parking_monitor roi-pick .\data\raw\faisal_ajao\video.mp4 --output .\configs\roi.shared_carpark.json --video-id shared_carpark --zone right --prefix R
+.\.venv\Scripts\python.exe -m parking_monitor roi-pick .\data\raw\faisal_ajao\video.mp4 --output .\configs\drafts\roi.shared_carpark.json --video-id shared_carpark --zone right --prefix R
 ```
 
 출력 JSON이 이미 있으면 먼저 불러와 표시한다. 다른 원본 영상 해시·기준 해상도와 일치하지 않으면 중단한다.
@@ -63,7 +63,7 @@ GUI 창이 열린 동안 터미널은 프로그램 종료를 기다린다. 창�
 ## 저장 파일 재사용 확인
 
 ```powershell
-.\.venv\Scripts\python.exe -m parking_monitor roi-preview .\data\raw\faisal_ajao\video.mp4 --roi .\configs\roi.shared_carpark.json --frame 336 --width 550 --output .\tmp\roi_review\preview.png
+.\.venv\Scripts\python.exe -m parking_monitor roi-preview .\data\raw\faisal_ajao\video.mp4 --roi .\configs\drafts\roi.shared_carpark.json --frame 336 --width 550 --output .\tmp\roi_review\preview.png
 ```
 
 위 명령은 GUI 없이 JSON을 불러와 지정 프레임에 ROI를 표시하고 이미지와 각 마스크의 픽셀 수를 출력한다.

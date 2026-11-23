@@ -49,5 +49,5 @@ lot_1처럼 FPS가 15.00000487로 보고되면 16프레임 간격을 사용한�
 ```
 
 검증기는 원본 SHA256, 알려진 영상·그룹 ID, 실제 디코딩 범위, 구간 중복·간격, 중복 원본과 표집 프레임 중복을 검사한다.
-결과는 `manifests/split_validation.json`, 분할 정책과 구간 목록 SHA256은 `manifests/split_policy.json`에 보존한다.
+재검증 결과인 `split_validation.json`과 `frame_samples.csv`는 `tmp/split_review/`에 생성된다. 확정본과 분할 정책·구간 목록 SHA256은 `manifests/`에서 확인한다.
 해시가 다른 목록으로 바뀌면 중단하며 변경 사유를 검토해 정책 버전을 갱신해야 한다.

@@ -1,27 +1,53 @@
 # 주차면 점유 검출 및 모니터링
 
-고정 카메라의 주간 영상과 수동 다각형 ROI를 이용하는 비훈련 고전 영상처리 프로젝트다.
-프로젝트 로드맵은 로컬 형제 폴더 `../디지털영상처리이론과실습/p3_로드맵/`의 **주차면 점유검출 프로젝트 제안서.pdf / 주차면_점유검출_프로젝트_제안서_로드맵_최종.docx**이며 단계별 실행 기준은 [AGENTS.md](AGENTS.md)를 따른다.
-현재는 개발 환경과 입력 점검 도구를 준비한 상태다. 검출기·보정·평가·화면은 후속 구현이며, 실영상 성능을 측정하지 않았다.
+**디지털영상처리 이론과 실습 · 부릉부릉**
 
-**10주차 최소 산출물 완료:** 2026-11-10 검수 후 공통 영상의 20칸 ROI·라벨 규칙·개발용 분할 버전 2를 확정했다. [검수 결과와 확정 파일](docs/stage10-review.md)을 따른다. 팀원 원본 69칸과 정답 30행을 보존하고, 사용할 20칸 경계를 보정했으며 파일럿 검수본의 불명 2건을 점유로 수정했다. 독립 팀원 재검수와 다른 시점 ROI·정답 확대, 최종 성능평가 동결은 후속 작업이다.
+고정 카메라가 촬영한 주차장에서 지정한 주차면을 **빈자리·점유·보류**로 판정하는 OpenCV 프로젝트다. 학교 앞 주차장의 실제 촬영 영상으로 검출 성능을 검증하고, 검증을 마친 뒤 USB 웹캠과 모바일 대시보드로 시연하는 것이 목표다. [현장 검증 제안서](<docs/deliverables/field-validation/학교 앞 주차장 점유 검출 검증 제안서.docx>)
 
-고유 영상 3개와 이미지·보조 자료를 로컬에 확보했다. [샘플·재다운로드](data/SAMPLES.md), [개발용 분할](data/SPLITS.md), [ROI 도구](docs/roi.md), [팀원 인계 원본](data/handoffs/shared_carpark_2026-11-10/README.md)을 확인한다. 현재 사용할 설정은 `configs/roi.shared_carpark.final.json`, 파일럿 검수본은 `data/labels/pilot.shared_carpark.reviewed.csv`다. `python scripts/validate_stage10.py`로 영상 없이 확정 파일의 무결성과 연결을 검사한다.
+| 구분 | 현황 |
+| --- | --- |
+| 구현 | 영상 점검, 다각형 ROI 편집·미리보기, 픽셀 비율 기준선, 알고리즘 정량 평가 CLI |
+| 동작 검증 | FPS가 다른 합성 영상으로 검증·설정 동결·최종 테스트를 실행했다. 공통 저장 영상에서는 20칸 ROI와 픽셀 비율 기준선을 재현했다. |
+| 현장 검증 | 공통 영상의 검수 라벨 30행은 보정용이다. 학교 앞 영상과 독립 검증·테스트 정답을 확보한 뒤 실제 F1·지연·처리량과 시연 구성을 확정한다. |
+| 시연 계획 | 웹캠 → 노트북 검출 → SQLite → Streamlit. 현장에서 QR을 열어 휴대폰의 빈자리 수와 칸별 상태를 확인한다. 현장 연결이 어려우면 학교 앞 저장 영상으로 재생 시연한다. |
 
-## 개발 환경
+## 검출과 비교 방식
 
-Windows x64, Python 3.12(로컬 검증 3.12.14), NumPy, OpenCV, Matplotlib, pytest.
-이 README가 있는 `주차면점유검출` 폴더에서 실행한다.
-프로젝트 전용 `.venv`를 사용하며 기존 실습 환경은 재사용하지 않는다.
-Python 3.12 설치 후 PowerShell에서:
+```text
+고정 카메라 프레임
+├─ 픽셀 비율     이진화 → 형태학 → 선택적 연결성분 필터 → ROI 안의 흰 픽셀 비율
+└─ 라플라시안   평활 → 라플라시안 응답 → ROI 안의 절댓값 평균
+                  ↓
+칸별 두 임계값 → 단독 또는 일치 판정 → 선택적 시간 안정화
+                  ↓
+빈자리 · 점유 · 보류
+```
+
+두 특징을 결합하면 같은 확정 상태를 낸 경우에만 그 상태를 채택한다. 안정화는 같은 확정 후보가 설정 시간 동안 연속으로 유지되면 상태를 확정한다. 다양한 조건에서의 효과를 확인하기 위해 아래 비교를 같은 영상·ROI·정답으로 실행한다.
+
+| 확인할 효과 | 비교 구성 |
+| --- | --- |
+| 단독 성능 | A 픽셀 비율과 B 라플라시안 |
+| 연결성분 필터 | A와 A-CC |
+| 특징 결합 | A와 B 각각을 C 두 특징 결합과 비교 |
+| 시간 안정화 | C와 D. 안정화 시간 0.5초와 1.0초를 각각 측정 |
+| 통합 후 필터 | 같은 안정화 시간의 D와 D-CC |
+
+분류 점수는 정답을 붙인 프레임에서 계산하고, 입·출차 지연은 연속 프레임에서 잰다. 빈자리가 양성이고, 실제 빈자리의 출력 보류는 F1 계산에서 미탐에 포함한다. 검증에서 **거짓 빈자리율 5% 이하와 확정 비율 95% 이상**을 충족한 구성 중 빈자리 F1이 높은 것을 우선하고, 동률이면 전체 루프 시간을 비교한다.
+
+## 설치와 빠른 실행
+
+Windows PowerShell에서 **Python 3.12**의 실행 파일을 지정한다. 설치 스크립트가 프로젝트 전용 가상환경과 고정 의존성을 설정한다.
 
 ```powershell
+git clone https://github.com/LDH-ai/parking-occupancy-monitor.git
+cd parking-occupancy-monitor
 .\scripts\setup.ps1 -Python 'C:\path\to\Python312\python.exe'
 .\.venv\Scripts\python.exe -m parking_monitor doctor
 .\.venv\Scripts\python.exe -m pytest
 ```
 
-`-Python`에는 실제 Python 3.12 실행 파일을 지정한다. 실행 정책이 스크립트를 막으면 현재 프로세스에서만 정책을 조정하거나 아래 명령을 직접 실행한다.
+설치 스크립트 대신 직접 설치할 수 있다. Python 3.12가 선택된 상태에서 실행한다.
 
 ```powershell
 python -m venv .venv
@@ -30,43 +56,55 @@ python -m venv .venv
 .\.venv\Scripts\python.exe -m pip check
 ```
 
-`requirements.txt`는 로컬에서 설치·검증한 전체 버전을 고정한다. 의존성을 변경할 때 Python 3.12에서 재설치·검증 후 고정 파일을 갱신한다.
-VS Code에서 이 폴더를 열면 `.venv/Scripts/python.exe`를 선택한다. 가상환경은 PC 간 복사하지 않고 재생성한다.
+### 공통 샘플로 픽셀 기준선 확인
 
-## 입력과 초기 설정
-
-1. 사용 조건이 확인된 영상을 `data/raw/`에 확보하고 `data/manifests/videos.csv`에 기록한다.
-2. `data/manifests/splits.csv`에 보정·검증·테스트 블록을 분리한다.
-3. 영상 정보와 첫 프레임을 확인한다.
-4. 실제 프레임에서 10개 이상 칸의 네 꼭짓점을 지정해 `configs/roi.example.json`을 바탕으로 ROI 설정을 만든다.
-5. 라벨 규칙에 따라 `data/labels/labels.csv`를 작성한다.
+[샘플 안내](data/SAMPLES.md)에 따라 원본 영상을 로컬에 확보한 뒤, 저장소의 20칸 ROI와 검수 라벨을 사용한다. 이 샘플은 검출 흐름과 보정 결과를 재현하는 용도다.
 
 ```powershell
-.\.venv\Scripts\python.exe -m parking_monitor video-info .\data\raw\parking.mp4
+.\.venv\Scripts\python.exe scripts/download_samples.py
+$baselineOut = "results/runs/shared-carpark-$(Get-Date -Format yyyyMMdd-HHmmss)"
+.\.venv\Scripts\python.exe -m parking_monitor pixel-baseline `
+  --video data/raw/faisal_ajao/video.mp4 `
+  --roi configs/roi.shared_carpark.final.json `
+  --labels data/labels/pilot.shared_carpark.reviewed.csv `
+  --splits data/manifests/splits.csv `
+  --config configs/examples/pixel-baseline.json `
+  --timeseries --out $baselineOut
 ```
 
-`configs/*.example.json`은 미보정 예시다. ROI는 비어 있고 임계값은 없으므로 검출용 최종 설정으로 사용할 수 없다.
-현재 지원 명령은 `doctor`, `video-info`, `roi-pick`, `roi-preview`다. ROI 편집·저장·재사용 방법은 [ROI 안내](docs/roi.md)를 따른다. 검출·보정·평가 명령은 아직 구현하지 않았다.
+## 학교 앞 영상 정량 평가
 
-## 로드맵과 평가 원칙
+1. **촬영과 ROI.** 고정 카메라에 잘 보이는 10칸을 대상으로 촬영한다. 최종 테스트에는 150초 영상 2개와 입차·출차 각각 6건을 촬영해, 각 방향에서 최소 5건을 평가하는 것이 권장안이다. `video-info`로 영상 정보를 확인하고 `roi-pick`으로 해당 영상의 ROI를 작성한다. [ROI 안내](docs/guides/roi.md)
+2. **정답과 분할.** 보정·검증·최종 테스트를 세션이나 시간 구간으로 나눈다. 분류용 프레임 정답과 지연 측정용 사건 정답을 준비한다. 최종 분류는 1초 이상 간격의 200프레임 이상을 목표로 한다. [데이터 준비 및 라벨 규칙](data/README.md)
+3. **평가 목록.** [예시 JSON](configs/examples/quantitative-evaluation.json)을 복사해 영상·ROI·분할·정답 경로를 채운다. 경로는 목록 파일 기준이다. 카메라 위치나 주차면 좌표가 바뀌면 새 `view_id`와 보정 자료를 지정한다. 동일한 위치·좌표·칸 ID·기준 해상도의 촬영본은 `view_id`를 공유할 수 있다.
 
-| 단계 | 산출물과 완료 기준 |
+```powershell
+$manifest = "configs/school-evaluation.json"
+$run = "results/runs/quantitative-evaluation/school-$(Get-Date -Format yyyyMMdd-HHmmss)"
+.\.venv\Scripts\python.exe -m parking_monitor evaluate validate --manifest $manifest --out "$run/validation"
+.\.venv\Scripts\python.exe -m parking_monitor evaluate freeze --validation-run "$run/validation" --out "$run/frozen.json"
+.\.venv\Scripts\python.exe -m parking_monitor evaluate test --manifest $manifest --frozen "$run/frozen.json" --out "$run/test"
+```
+
+`validate`에서 보정과 검증을 실행하고, `freeze`에서 시연 구성과 임계값을 저장한다. 기준을 충족한 구성이 없으면 검증표를 확인해 `freeze --candidate <구성 ID> --reason "<선택 근거>"`로 절충안을 기록한다. `test`는 동결한 설정으로 별도 최종 구간을 평가한다. [평가 프로그램 설계](docs/project/quantitative-evaluation-design.md)
+
+| 결과 파일 | 내용 |
 | --- | --- |
-| 10주차 | 영상·분할·라벨 규칙·ROI. 저장 영상의 10개 이상 좌표 재사용 |
-| 11주차 | 픽셀 비율 기준선·r 분포·초기 혼동표. 동일 설정 CSV 재생성 |
-| 12주차 | 라플라시안·결합·시간 안정화 A~D 비교. 검증 후 설정 동결 |
-| 13주차 | 화면·CSV·평가 통합, 속도·지연. 저장 영상 전체 실행 후 카메라 확장 |
-| 14주차 | 동결 테스트·열화 실험·문서, 다른 팀원의 새 환경 재현 |
-| 15주차 | 코드·설정·정답·결과·보고서·포스터·시연 영상 제출 |
+| `comparison.csv` | 구성별 F1, 거짓 빈자리율, 확정 비율, FPS, 처리시간, 입·출차 지연 요약 |
+| `metrics.json` | 영상별·전체 혼동표와 지표 |
+| `predictions.csv` · `events.csv` | 프레임별 판정과 사건별 지연·미검출 |
+| `run_info.json` · `thresholds.json` · `frozen.json` | 입력과 코드 해시, 보정 임계값, 검증에서 선택한 설정 |
 
-픽셀 비율과 ROI 내부 라플라시안 절댓값 평균을 비교한다. 하한/상한 사이와 불일치는 보류다.
-초기 보류에서 같은 확정 후보가 T초 유지되어야 확정하며, 후보 변경·불확실 시 즉시 보류로 전환한다.
-빈자리를 양성으로 두며 빈자리 정답의 보류 출력도 FN에 포함한다.
-목표는 F1 ≥0.90, 확정 비율 ≥95%, 거짓 빈자리율 ≤5%, CPU·720p·20칸 전체 15 FPS다. 모두 미측정 목표다.
-보정에서 임계값, 검증에서 필터·결합·T를 선택하고 최종 테스트는 선택에 사용하지 않는다.
+저장 영상 CLI의 FPS는 화면을 띄우지 않은 상태에서 디코딩·검출·CSV 기록을 포함해 잰다. 제안서 최종 목표는 **빈자리 F1 ≥ 0.90, 확정 비율 ≥ 95%, 거짓 빈자리율 ≤ 5%, CPU·720p·20칸에서 전체 15 FPS 이상**이다. 모바일 시연의 3초 반영 목표는 웹캠에서 휴대폰까지 별도로 측정한다.
 
-강의자료·제공 양식·개인정보가 포함된 원본 문서·원본 영상·가상환경·중간 렌더는 초기 GitHub 반영 범위에서 제외했다.
+## 저장소 구조
 
-## 자료와 이전 버전
+| 경로 | 용도 |
+| --- | --- |
+| [src/parking_monitor](src/parking_monitor/) | 공통 CLI, 영상·ROI 도구, 픽셀 비율 기준선 |
+| [src/evaluation](src/evaluation/) | 라플라시안·결합·안정화, 정량 비교, 설정 동결 |
+| [configs](configs/) · [data](data/README.md) | ROI·실행 설정, 영상 목록·분할·정답 |
+| [tests](tests/) · [scripts](scripts/) | 자동 테스트, 환경 설정, 데이터 검증 |
+| [docs](docs/README.md) | 현장 제안서, 평가 설계, 진행 기록과 팀원 안내 |
 
-코드 작성·프로젝트 진행은 이 저장소에서만 수행한다. 이론·로드맵·원본 문서·이전 버전은 로컬 `../디지털영상처리이론과실습/`에서 관리한다. GitHub 이력에서도 분리 전 초기 버전을 확인할 수 있다.
+영상 원본은 로컬 `data/raw/`에, 실행 결과는 `results/runs/`에 둔다. 팀원 작업 절차와 평가 세부 기준은 [팀원 시작 안내](.github/CONTRIBUTING.md)와 [프로젝트 지침](AGENTS.md)을 참고한다.

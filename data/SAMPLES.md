@@ -40,6 +40,6 @@
 ```
 
 다운로드 스크립트는 기존 파일의 해시가 같으면 건너뛰고, 다르면 덮어쓰지 않고 중단한다.
-영상 목록은 `manifests/videos.csv`, 무결성·디코딩 결과는 `manifests/sample_validation.json`에 기록된다.
-샘플 화면 대조 이미지는 `tmp/sample_review/video_contact_sheet.jpg`에 생성된다.
-보정·검증·테스트 개발용 분할 버전 2와 표집 목록을 확정했다. [SPLITS.md](SPLITS.md)를 따른다. 2026-11-10 팀원 ROI 69칸을 보존하고, 그중 경계를 검수·보정한 20칸과 파일럿 검수본 30행을 확정해 10주차 최소 산출물을 완료했다. [검수 기록](../docs/stage10-review.md)·[ROI 안내](../docs/roi.md)·[인계 안내](handoffs/shared_carpark_2026-11-10/README.md)를 따른다. 독립 사람 재검수·다른 시점 ROI·정답 및 사건 규모 확대·최종 성능평가 동결은 후속 작업이다.
+확정 영상 목록과 무결성·디코딩 기록은 `manifests/videos.csv`와 `manifests/sample_validation.json`에 있다.
+재검증에서 생성한 영상 목록, 무결성·디코딩 기록, 화면 대조 이미지는 모두 `tmp/sample_review/`에 저장된다.
+보정·검증·테스트 개발용 분할 버전 2와 표집 목록을 확정했다. [SPLITS.md](SPLITS.md)를 따른다. 2026-11-10 팀원 ROI 69칸을 보존하고, 그중 경계를 검수·보정한 20칸과 파일럿 검수본 30행을 확정해 10주차 최소 산출물을 완료했다. [검수 기록](../docs/stage10-review.md)·[ROI 안내](../docs/guides/roi.md)·[인계 안내](handoffs/shared_carpark_2026-11-10/README.md)를 따른다. 독립 사람 재검수·다른 시점 ROI·정답 및 사건 규모 확대·최종 성능평가 동결은 후속 작업이다.
